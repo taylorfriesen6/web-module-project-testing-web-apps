@@ -10,8 +10,9 @@ test('renders without errors', ()=>{
 
 test('renders the contact form header', ()=> {
     render(<ContactForm/>);
-    const headerText = screen.getByText(/contact form/i);
-    expect(headerText).toBeInTheDocument();
+    const header = screen.getByRole('heading');
+    expect(header).toBeInTheDocument();
+    expect(header).toHaveTextContent('Contact Form');
 });
 
 test('renders ONE error message if user enters less then 5 characters into firstname.', async () => {
